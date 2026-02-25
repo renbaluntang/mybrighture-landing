@@ -1,4 +1,4 @@
-const logoImage = '/images/logo-white.svg'
+import logoImage from '../assets/image/logo-white.svg'
 
 const navLinks = [
   { label: 'Pronunciation Tips', href: '#essential' },
