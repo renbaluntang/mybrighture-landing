@@ -11,9 +11,14 @@ fi
 
 echo "Installing dependencies..."
 if [ -f package-lock.json ]; then
-  npm ci || npm install
+  npm ci
 else
   npm install
+fi
+
+if [ "${SKIP_AUDIT:-0}" != "1" ]; then
+  echo "Applying security fixes (npm audit fix)..."
+  npm audit fix || true
 fi
 
 echo "Starting React app..."

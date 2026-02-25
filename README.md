@@ -1,16 +1,33 @@
-# React + Vite
+# MyBrighture Landing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page project built with React and Vite.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## React Compiler
+- Node.js 18+ (npm included)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Run with `run.sh`
 
-## Expanding the ESLint configuration
+From the project root:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+chmod +x run.sh
+./run.sh
+```
+
+The script will:
+
+1. Check that `npm` is installed.
+2. Install dependencies using `npm ci` when `package-lock.json` exists.
+3. Run `npm audit fix` to patch known vulnerabilities when possible.
+4. Start the Vite development server on your local network (`--host`).
+
+### Optional flags
+
+Skip automatic vulnerability patching:
+
+```bash
+SKIP_AUDIT=1 ./run.sh
+```
