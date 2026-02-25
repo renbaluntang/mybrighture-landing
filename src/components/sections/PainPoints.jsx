@@ -18,7 +18,7 @@ const painPoints = [
   },
 ]
 
-function PainPointsSection() {
+function PainPoints() {
   return (
     <section className="relative pb-12 pt-10 sm:pb-14 sm:pt-12 lg:pb-16 lg:pt-14">
       <div className="mx-auto w-11/12 max-w-[1680px] px-4 sm:px-8 lg:px-16">
@@ -74,4 +74,4 @@ function PainPointsSection() {
   )
 }
 
-export default PainPointsSection
+export default PainPoints

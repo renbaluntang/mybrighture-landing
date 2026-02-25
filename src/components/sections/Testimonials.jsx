@@ -59,7 +59,7 @@ const buildCards = () => [
 const CARDS = buildCards()
 const INITIAL_INDEX = N
 
-function TestimonialsSection() {
+function Testimonials() {
   const trackRef       = useRef(null)
   const activeIndexRef = useRef(INITIAL_INDEX)
   const isAnimatingRef = useRef(false)
@@ -309,4 +309,4 @@ function TestimonialsSection() {
   )
 }
 
-export default TestimonialsSection
+export default Testimonials

@@ -25,13 +25,13 @@ const lessonCards = [
   },
 ]
 
-function LessonsSection() {
+function Lessons() {
   return (
     <section id="lessons" className="px-4 pb-20 pt-16 sm:px-8 lg:px-16 lg:pb-24 lg:pt-20">
       <div className="mx-auto w-full max-w-[1680px]">
         <h2 className="text-[32px] font-bold leading-[1.15] text-[#1f2128] sm:text-[36px] md:text-[40px]">Lessons</h2>
         <p className="mt-4 text-[18px] font-bold text-[#f24506] sm:text-[20px]">発音関連のレッスン一覧</p>
-        <p className="mt-8 max-w-[1260px] text-[15px] leading-[1.9] text-[#2b2b2b]">
+        <p className="mt-8 max-w-[1260px] text-[15px] leading-[1.75] text-[#2b2b2b]">
           Brighture English Academyでは、一音一音しっかりと学習していくため、いくつかのレッスンに分けて発音レッスンを提供しています。PP101
           (Phonics and Pronunciation - Vowels) から順に学んでいただくことで、スムーズに発音を身につけられます。
         </p>
@@ -44,7 +44,7 @@ function LessonsSection() {
               className="group rounded-2xl border border-transparent bg-[#efefef] px-6 py-8 transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:border-[#f2c2b2] hover:bg-[#f5f5f5] hover:shadow-lg sm:px-8 sm:py-9"
             >
               <h3 className="text-[20px] font-bold leading-[1.4] text-[#f24506]">{card.title}</h3>
-              <p className="mt-5 text-[14px] leading-[1.95] text-[#474747]">{card.description}</p>
+              <p className="mt-5 text-[14px] leading-[1.75] text-[#474747]">{card.description}</p>
               <div className="mt-7 inline-flex min-w-[170px] items-center justify-center rounded-xl bg-[#f9f9f9] px-4 py-2.5 text-[15px] font-bold tracking-tight text-[#252525] transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:bg-[#fff3ee]">
                 {card.code}
               </div>
@@ -57,4 +57,4 @@ function LessonsSection() {
   )
 }
 
-export default LessonsSection
+export default Lessons

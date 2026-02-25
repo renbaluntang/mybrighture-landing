@@ -47,7 +47,7 @@ const rightFeatures = [
 const allFeatures = [...leftFeatures, ...rightFeatures]
 const baseAnimationDelay = 220
 
-function WhyBrightureSection() {
+function WhyBrighture() {
   const sectionRef = useRef(null)
   const [isInView, setIsInView] = useState(false)
 
@@ -156,18 +156,18 @@ function WhyBrightureSection() {
         </div>
 
         <div className="mt-8 flex justify-center sm:mt-9">
-          <button
-            type="button"
+          <a
+            href="https://brighture-edu.com/register/index.html"
             className="group relative inline-flex items-center justify-center rounded-md border border-[#e8400a] bg-[#e8400a] px-7 py-2.5 text-[15px] tracking-tight transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:bg-transparent"
           >
             <span className="font-bold text-white transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:text-[#e8400a]">
               無料体験申込み  →
             </span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
   )
 }
 
-export default WhyBrightureSection
+export default WhyBrighture

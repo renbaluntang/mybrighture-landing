@@ -22,7 +22,7 @@ const faqs = [
   },
 ]
 
-function FaqSection() {
+function Faq() {
   const [openIndex, setOpenIndex] = useState(-1)
 
   return (
@@ -97,4 +97,4 @@ function FaqSection() {
   )
 }
 
-export default FaqSection
+export default Faq

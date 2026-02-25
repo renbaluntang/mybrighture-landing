@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import PricingJapanSection from './PricingJapanSection.jsx'
+import Pricing_JP from './Pricing_JP.jsx'
 
 const GEO_CACHE_KEY = 'geo-country-cache-v1'
 const GEO_CACHE_TTL_MS = 1000 * 60 * 60 * 24
@@ -118,7 +118,7 @@ const planTypes = {
   },
 }
 
-function PricingSection() {
+function Pricing_EN() {
   const [isJapanIp, setIsJapanIp] = useState(false)
   const [activeType, setActiveType] = useState('subscription')
   const [displayType, setDisplayType] = useState('subscription')
@@ -159,7 +159,7 @@ function PricingSection() {
   }, [])
 
   if (isJapanIp) {
-    return <PricingJapanSection />
+    return <Pricing_JP />
   }
 
   useEffect(() => {
@@ -230,12 +230,12 @@ function PricingSection() {
                       <p className="pb-1 text-[13px] text-[#4a4a4a] sm:text-[14px]">{card.priceSuffix}</p>
                     </div>
 
-                    <button
-                      type="button"
+                    <a
+                      href="https://brighture-edu.com/register/index.html"
                       className="mt-4 w-full rounded border border-[#e8400a] bg-[#e8400a] px-5 py-2.5 text-[14px] font-bold text-white transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-0.5 hover:bg-[#cf3808] hover:shadow-md active:translate-y-0 active:scale-[0.99]"
                     >
                       Get Started
-                    </button>
+                    </a>
 
                     <ul className="mt-5 space-y-2">
                       {card.items.map((item) => (
@@ -260,4 +260,4 @@ function PricingSection() {
   )
 }
 
-export default PricingSection
+export default Pricing_EN

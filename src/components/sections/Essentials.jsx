@@ -36,7 +36,7 @@ const essentialCards = [
   },
 ]
 
-function EssentialsSection() {
+function Essentials() {
   const cardRefs = useRef([])
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -79,8 +79,8 @@ function EssentialsSection() {
 
   return (
     <section id="essential" className="px-4 pb-16 pt-8 sm:px-8 lg:px-16 lg:pb-20 lg:pt-12">
-      <div className="mx-auto grid w-full max-w-[1680px] gap-6 lg:grid-cols-[0.52fr_1fr] lg:gap-8">
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+      <div className="mx-auto grid w-full max-w-[1680px] gap-6 md:grid-cols-[0.52fr_1fr] md:gap-8">
+        <aside className="md:sticky md:top-24 md:self-start">
           <h2 className="text-[40px] font-bold leading-tight text-[#181b22]">What&apos;s Essential?</h2>
           <p className="mt-3 text-base font-bold text-[#f24506] sm:text-lg">発音を学ぶ上で大切なこと</p>
 
@@ -131,7 +131,7 @@ function EssentialsSection() {
               <img
                 src={card.image}
                 alt={card.alt}
-                className="mt-6 h-auto w-full object-contain"
+                className="mt-6 h-auto max-h-[300px] w-full object-contain"
               />
 
               <p className="mt-5 text-[16px] leading-[1.75] text-[#23262f] sm:mt-6 sm:leading-[1.8] md:leading-[1.85]">
@@ -145,4 +145,4 @@ function EssentialsSection() {
   )
 }
 
-export default EssentialsSection
+export default Essentials

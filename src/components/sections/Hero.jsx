@@ -1,8 +1,8 @@
 import heroImage from '../../assets/image/hero.webp'
 
-function HeroSection() {
+function Hero() {
   return (
-    <section className="relative pt-2 pb-8 md:pt-0 md:pb-10">
+    <section id="hero" className="relative pt-2 pb-8 md:pt-0 md:pb-10">
       <div className="grid w-full max-h-[620px] overflow-hidden md:grid-cols-2 xl:mx-auto lg:h-[87vh] xl:w-10/12">
         <div className="relative z-10 flex items-center px-5 pb-8 pt-6 sm:px-10 md:order-1 lg:px-16">
           <div className="max-w-[620px]">
@@ -47,14 +47,14 @@ function HeroSection() {
             Brighture English Academyでは、独自の厳しいトレーニングを修了した講師たちが、一人ひとりのウィークポイントに寄り添いながら、粘り強く指導します。特に生徒の口の動きや音を細かくチェックしながら練習する発音レッスンが人気。
           </p>
           <div className="mt-10 flex justify-start max-[425px]:justify-center">
-            <button
-              type="button"
+            <a
+              href="https://brighture-edu.com/register/index.html"
               className="group relative inline-flex h-auto w-auto max-w-full items-center justify-center rounded-md border border-[#e8400a] bg-[#e8400a] px-8 py-3 text-base tracking-tight transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:bg-transparent"
             >
               <span className="font-bold text-white transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:text-[#e8400a]">
                 無料体験に申し込む
               </span>
-            </button>
+            </a>
           </div>
           </div>
         </div>
@@ -71,4 +71,4 @@ function HeroSection() {
   )
 }
 
-export default HeroSection
+export default Hero

@@ -1,49 +1,49 @@
 import Header from '../components/Header.jsx'
 import IndexBackground from '../components/backgrounds/IndexBackground.jsx'
-import HeroSection from '../components/sections/HeroSection.jsx'
-import PainPointsSection from '../components/sections/PainPointsSection.jsx'
-import PronunciationPromiseSection from '../components/sections/PronunciationPromiseSection.jsx'
-import EssentialsSection from '../components/sections/EssentialsSection.jsx'
-import WhyBrightureSection from '../components/sections/WhyBrightureSection.jsx'
-import LessonsSection from '../components/sections/LessonsSection.jsx'
-import TestimonialsSection from '../components/sections/TestimonialsSection.jsx'
-import PricingSection from '../components/sections/PricingSection.jsx'
-import FaqSection from '../components/sections/FaqSection.jsx'
-import CtaSection from '../components/sections/CtaSection.jsx'
+import Hero from '../components/sections/Hero.jsx'
+import PainPoints from '../components/sections/PainPoints.jsx'
+import PronunciationPromise from '../components/sections/PronunciationPromise.jsx'
+import Essentials from '../components/sections/Essentials.jsx'
+import WhyBrighture from '../components/sections/WhyBrighture.jsx'
+import Lessons from '../components/sections/Lessons.jsx'
+import Testimonials from '../components/sections/Testimonials.jsx'
+import Pricing_JP from '../components/sections/Pricing_JP.jsx'
+import Faq from '../components/sections/Faq.jsx'
+import Cta from '../components/sections/Cta.jsx'
 import Footer from '../components/Footer.jsx'
 
 function IndexPage() {
   return (
     <>
-      <main className="relative w-full text-[#12151d]">
+      <main id="top" className="relative w-full text-[#12151d]">
         <IndexBackground />
 
         <div className="w-full bg-[#e6e6e6]">
           <div className="mx-auto w-full max-w-[1680px]">
             <Header />
-            <HeroSection />
+            <Hero />
           </div>
         </div>
         <div className="w-full bg-[#fafafa]">
-          <PainPointsSection />
+          <PainPoints />
         </div>
         <div className="mx-auto w-full max-w-[1680px]">
-          <PronunciationPromiseSection />
-          <EssentialsSection />
+          <PronunciationPromise />
+          <Essentials />
         </div>
         <div className="w-full bg-[#f3f1f1]">
-          <WhyBrightureSection />
+          <WhyBrighture />
         </div>
         <div className="mx-auto w-full max-w-[1680px]">
-          <LessonsSection />
+          <Lessons />
         </div>
         <div className="w-full bg-[#eef2f4]">
-          <TestimonialsSection />
+          <Testimonials />
         </div>
         <div className="mx-auto w-full max-w-[1680px]">
-          <PricingSection />
-          <FaqSection />
-          <CtaSection />
+          <Pricing_JP />
+          <Faq />
+          <Cta />
         </div>
       </main>
       <Footer />

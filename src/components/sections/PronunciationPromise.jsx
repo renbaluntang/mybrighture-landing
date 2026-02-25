@@ -1,4 +1,4 @@
-function PronunciationPromiseSection() {
+function PronunciationPromise() {
   return (
     <section className="bg-[#fafafa] px-4 pb-12 pt-4 sm:px-8 sm:pb-14 lg:px-16">
       <div className="mx-auto w-full max-w-[1680px]">
@@ -13,4 +13,4 @@ function PronunciationPromiseSection() {
   )
 }
 
-export default PronunciationPromiseSection
+export default PronunciationPromise

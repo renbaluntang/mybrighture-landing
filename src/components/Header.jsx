@@ -64,7 +64,7 @@ function Header() {
 
         <div className="flex items-center gap-2 sm:ml-auto lg:hidden">
           <a
-            href="#contact"
+            href="https://brighture-edu.com/register/index.html"
             className="group relative hidden overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)] sm:inline-flex"
           >
             <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
@@ -84,7 +84,7 @@ function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="#contact"
+            href="https://brighture-edu.com/register/index.html"
             className="group relative inline-flex overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)]"
           >
             <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
@@ -120,47 +120,61 @@ function Header() {
           <div className="mt-6">
             <div className="space-y-2 border-t border-[#d8dde3] pt-6">
               <a
+                href="#top"
+                className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
+              >
+                ヘッダー
+              </a>
+
+              <a
+                href="#hero"
+                className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
+              >
+                ヒーロー
+              </a>
+
+              <a
                 href="#essential"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >
-                Pronounciation Tips
+                発音のコツ
               </a>
 
               <a
                 href="#reasons"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >
-                With Brighture
+                Brightureについて
               </a>
 
               <a
                 href="#lessons"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >
-                Lessons
+                レッスン
               </a>
               <a
                 href="#voice"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >
-                Testimonials
+                受講生の声
               </a>
               <a
                 href="#faq"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >
-                FAQ
+                よくあるご質問
               </a>
             </div>
 
             <div className="mt-6 border-t border-[#d8dde3] pt-6">
               <a
-                href="#contact"
+                href="https://brighture-edu.com/register/index.html"
                 className="group relative inline-flex overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)]"
               >
                 <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
                 <span className="relative z-10 text-white transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:text-[#f24506]">
-                  Try a free lesson
+                  まずは無料体験
                 </span>
               </a>
             </div>
