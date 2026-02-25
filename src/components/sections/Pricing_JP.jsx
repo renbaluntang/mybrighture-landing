@@ -159,7 +159,7 @@ function Pricing_JP() {
 
                     <a
                       href="https://brighture-edu.com/register/index.html"
-                      className="mt-4 w-full rounded border border-[#e8400a] bg-[#e8400a] px-5 py-2.5 text-[14px] font-bold text-white transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-0.5 hover:bg-[#cf3808] hover:shadow-md active:translate-y-0 active:scale-[0.99]"
+                      className="mt-4 inline-flex w-full items-center justify-center rounded border border-[#e8400a] bg-[#e8400a] px-5 py-2.5 text-[14px] font-bold text-white transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-0.5 hover:bg-[#cf3808] hover:shadow-md active:translate-y-0 active:scale-[0.99]"
                     >
                       プランを購入する
                     </a>
