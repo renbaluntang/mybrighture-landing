@@ -1,4 +1,4 @@
-import heroImage from '../../../assets/image/hero_en.webp'
+import heroImage from '../../../assets/image/Hero_en.webp'
 
 function Hero() {
   return (
