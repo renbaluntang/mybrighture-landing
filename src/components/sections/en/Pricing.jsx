@@ -1,35 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import Pricing_JP from './Pricing_JP.jsx'
-
-const GEO_CACHE_KEY = 'geo-country-cache-v1'
-const GEO_CACHE_TTL_MS = 1000 * 60 * 60 * 24
-
-function getCachedCountry() {
-  try {
-    const raw = localStorage.getItem(GEO_CACHE_KEY)
-    if (!raw) return null
-    const parsed = JSON.parse(raw)
-    if (!parsed?.country || !parsed?.timestamp) return null
-    if (Date.now() - parsed.timestamp > GEO_CACHE_TTL_MS) return null
-    return parsed.country
-  } catch {
-    return null
-  }
-}
-
-function setCachedCountry(country) {
-  try {
-    localStorage.setItem(
-      GEO_CACHE_KEY,
-      JSON.stringify({
-        country,
-        timestamp: Date.now(),
-      }),
-    )
-  } catch {
-    // ignore storage failures
-  }
-}
 
 const planTypes = {
   subscription: {
@@ -118,49 +87,11 @@ const planTypes = {
   },
 }
 
-function Pricing_EN() {
-  const [isJapanIp, setIsJapanIp] = useState(false)
+function Pricing() {
   const [activeType, setActiveType] = useState('subscription')
   const [displayType, setDisplayType] = useState('subscription')
   const [isVisible, setIsVisible] = useState(true)
   const activePlan = useMemo(() => planTypes[displayType], [displayType])
-
-  useEffect(() => {
-    const cachedCountry = getCachedCountry()
-    if (cachedCountry) {
-      setIsJapanIp(cachedCountry === 'JP')
-      return undefined
-    }
-
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 2500)
-
-    const detectCountry = async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/', { signal: controller.signal })
-        if (!response.ok) return
-        const data = await response.json()
-        const countryCode = typeof data?.country_code === 'string' ? data.country_code.toUpperCase() : 'UNKNOWN'
-        setCachedCountry(countryCode)
-        setIsJapanIp(countryCode === 'JP')
-      } catch {
-        // keep default non-JP variant on network failure
-      } finally {
-        clearTimeout(timeoutId)
-      }
-    }
-
-    detectCountry()
-
-    return () => {
-      clearTimeout(timeoutId)
-      controller.abort()
-    }
-  }, [])
-
-  if (isJapanIp) {
-    return <Pricing_JP />
-  }
 
   useEffect(() => {
     if (activeType === displayType) return undefined
@@ -260,4 +191,4 @@ function Pricing_EN() {
   )
 }
 
-export default Pricing_EN
+export default Pricing

@@ -120,20 +120,6 @@ function Header() {
           <div className="mt-6">
             <div className="space-y-2 border-t border-[#d8dde3] pt-6">
               <a
-                href="#top"
-                className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
-              >
-                ヘッダー
-              </a>
-
-              <a
-                href="#hero"
-                className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
-              >
-                ヒーロー
-              </a>
-
-              <a
                 href="#essential"
                 className="block rounded-lg px-3 py-2 text-base font-semibold text-[#242833] transition hover:bg-[#eceff2]"
               >

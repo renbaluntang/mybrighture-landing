@@ -1,7 +1,7 @@
-import ctaL from '../../assets/image/CTA-L.png'
-import ctaR from '../../assets/image/CTA-R.png'
-import CtaAmbientBackground from '../backgrounds/CtaAmbientBackground'
-import CtaCloudLayer from '../backgrounds/CtaCloudLayer'
+import ctaL from '../../../assets/image/CTA-L.png'
+import ctaR from '../../../assets/image/CTA-R.png'
+import CtaAmbientBackground from '../../backgrounds/CtaAmbientBackground'
+import CtaCloudLayer from '../../backgrounds/CtaCloudLayer'
 
 function Cta() {
   return (

@@ -3,46 +3,25 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const baseTestimonials = [
   {
-    label: 'TOEICと英語力',
-    title: '"TOEIC 900点 から「話せる英語」を目指して発音から改善"',
+    label: 'TOEIC and Real English Skills',
+    title: '"From TOEIC 900 to spoken English Improving pronunciation first"',
     quote:
-      '最初の授業で、衝撃を受けました。それまでは自分なりにリスニングも発音も得意なほうだと思っていたのですが、初回の授業でたくさんの指摘を受け、「できていない自分」に気づかされました。先生の話すスピードはナチュラルスピード。発音も美しく、「こんなふうに話したい」と思いました。授業を録音して自分の音声と聞き比べてみると、思っていた以上に自分の発音が違っていて、その差に驚きました。',
+      'I was shocked in my very first lesson. Until then, I thought I was fairly good at listening and pronunciation. But in that first class, I received many corrections and realized how much I was actually missing.\n\nThe teacher spoke at a natural speed. The pronunciation was clear and beautiful. I thought, "This is how I want to speak."\n\nWhen I recorded the lesson and compared the teacher\'s voice with my own, I was surprised by how different my pronunciation really was.',
     name: 'Yさん',
   },
   {
-    label: 'コミュニケーションがスムーズに',
-    title: '"学校で学んだ発音はまったく別物だった"',
+    label: 'Smoother communication',
+    title: '"What I learned in school was completely different"',
     quote:
-      'Brightureで発音を学び始めてからずっと感じていたのは、「学校で学んできたものとは本当に違う」ということです。ほぼ初心者の状態で受講を始めましたが、それでも学校で習った発音とBrightureで学べる発音には、大きな隔たりがあることがすぐに分かりました。発音を学んだことで相手に聞き返される回数が減ったのはもちろん、正しい音を理解したことでリスニング力も向上し、こちらが聞き返す場面も少なくなりました。',
+      'After I started learning pronunciation at Brighture English Academy, I kept feeling that it was totally different from what I learned at school.\n\nI began the lessons almost as a beginner, but even so, I quickly realized there was a big gap between school pronunciation and the pronunciation taught at Brighture.\n\nAfter learning proper pronunciation, people asked me to repeat myself far less often. By understanding the correct sounds, my listening also improved, and I didn\'t need to ask others to repeat themselves as much.\n\nOverall, communication became surprisingly smooth.',
     name: 'Aさん',
   },
   {
-    label: '初心者から上級者に',
-    title: '"初心者が発音レッスンでキッカケを掴み、外資系のマネージャーに"',
+    label: 'From Beginner to Advanced',
+    title: '"A beginner finds a turning point through pronunciation\nNow a manager at a global company"',
     quote:
-      '初めて、「本当に喋れるようになるかもしれない」と感じました。それまでの学習では、確かにテストの点は上がっても、英語が話せるようになる実感はありませんでした。特に初心者のうちは、発音を先に学ばないとどうにもならないと思います。音が正しくないと、せっかくの知識も生かせません。',
+      'For the first time, I felt, "I might really be able to speak English." Before that, my test scores improved, but I never felt that my spoken English was getting better.\n\nEspecially at the beginner level, I believe pronunciation must come first. If the sounds are wrong, even good knowledge can\'t be used effectively.\n\nBy first understanding the sounds and learning how to produce them correctly, then studying grammar and reading, I felt myself naturally getting closer to real spoken English.',
     name: 'Hさん',
-  },
-  {
-    label: '海外出張で変化を実感',
-    title: '"会議で聞き返されなくなり、提案が通るようになった"',
-    quote:
-      '海外クライアントとの定例会議で、以前は何度も聞き返されていました。Brightureで発音の癖を直してからは、第一声で伝わることが増え、会議の流れが止まらなくなりました。話すことへの怖さが減り、提案する回数も増えました。',
-    name: 'Kさん',
-  },
-  {
-    label: 'リスニング力アップ',
-    title: '"音のルールを知って、映画が字幕なしで楽しめるように"',
-    quote:
-      '単語は知っているのに聞き取れない理由が、連結や脱落などの音の変化にあると知って納得しました。発音を練習すると同時に聞こえ方も変わり、英語の動画や映画を以前より自然に理解できるようになりました。',
-    name: 'Mさん',
-  },
-  {
-    label: '自信を持って話せる',
-    title: '"面接での英語回答が評価され、希望部署へ異動"',
-    quote:
-      '英語面接では内容より発音に不安があり、いつも緊張していました。レッスンで口の形やリズムを細かく改善した結果、面接官の反応が明らかに変わりました。伝わる実感が自信につながり、希望していた部署への異動が決まりました。',
-    name: 'Rさん',
   },
 ]
 
@@ -216,18 +195,18 @@ function Testimonials() {
       <div className="mx-auto w-full max-w-[1680px]">
 
         {/* Header */}
-        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10">
+        <div className="grid items-start !items-center gap-8 md:grid-cols-2 md:gap-10">
           <div>
-            <p className="text-[15px] font-bold text-[#e8400a]">● 受講者の声</p>
+            <p className="text-[15px] font-bold text-[#e8400a]">● Student Voice</p>
             <h2
               className="mt-5 text-[32px] font-semibold not-italic leading-[1.25] text-[#1f2d4a]"
               style={{ fontFamily: 'var(--s-font-ee93ad8a)' }}
             >
-              英語が変わる。未来がひらける。
+              Master English. Unlock Your Opportunities.
             </h2>
           </div>
           <p className="pt-1 text-[16px] leading-[1.85] text-[#2b2b2b]">
-            Brighture English Academyで学習された生徒さんから、たくさんの声をいただいています。その中から一部をご紹介させていただきます。
+            At Brighture English Academy, many students have shared their experiences with us. Here are just a few highlights.
           </p>
         </div>
 
@@ -310,3 +289,4 @@ function Testimonials() {
 }
 
 export default Testimonials
+ 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import section41Image from '../../assets/image/section4.1.webp'
-import section42Image from '../../assets/image/section4.2.webp'
-import section43Image from '../../assets/image/section4.3.webp'
+import section41Image from '../../../assets/image/section4.1.webp'
+import section42Image from '../../../assets/image/section4.2.webp'
+import section43Image from '../../../assets/image/section4.3.webp'
 
 const essentials = [
   '発音はなるべく早いうちに身につける',
@@ -90,8 +90,8 @@ function Essentials() {
                 type="button"
                 key={item}
                 onClick={() => handleSidebarClick(index)}
-                className={`flex w-full items-center justify-between border-b border-[#d6d6d6] py-5 text-left transition duration-200 active:scale-[0.99] ${
-                  activeIndex === index ? 'bg-[#efefef]' : 'hover:bg-[#efefef] active:bg-[#e7e7e7]'
+                className={`flex w-full items-center justify-between border-b border-[#d6d6d6] py-5 text-left transition-all duration-200 active:scale-[0.99] ${
+                  activeIndex === index ? 'bg-[#efefef] pl-3' : 'hover:bg-[#efefef] active:bg-[#e7e7e7] pl-0'
                 }`}
               >
                 <span className={`text-sm font-bold ${activeIndex === index ? 'text-[#f24506]' : 'text-[#23262f]'}`}>

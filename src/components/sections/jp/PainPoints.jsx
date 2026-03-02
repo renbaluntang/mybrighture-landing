@@ -1,4 +1,4 @@
-import section2Image from '../../assets/image/section2.png'
+import section2Image from '../../../assets/image/section2.png'
 
 const painPoints = [
   {
