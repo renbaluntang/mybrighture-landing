@@ -10,9 +10,17 @@ const normalizePath = (pathname) => {
   return trimmed || '/'
 }
 
+const stripBasePath = (pathname) => pathname.replace(/^\/mybrighture-landing(?=\/|$)/, '') || '/'
+
+const resolveRoutePath = () => {
+  const hashPath = window.location.hash.replace(/^#/, '')
+  if (hashPath) return normalizePath(hashPath)
+  return normalizePath(stripBasePath(window.location.pathname))
+}
+
 const englishPaths = new Set(['/en'])
 const japanesePaths = new Set(['/jp'])
-const currentPath = normalizePath(window.location.pathname)
+const currentPath = resolveRoutePath()
 const ActivePage = englishPaths.has(currentPath)
   ? IndexEnPage
   : japanesePaths.has(currentPath)
