@@ -16,6 +16,8 @@ function Cta() {
               <img
                 src={ctaL}
                 alt="CTA-l"
+                loading="lazy"
+                decoding="async"
                 className="block w-auto max-w-[250px] object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.2)]"
               />
             </div>
@@ -23,6 +25,8 @@ function Cta() {
               <img
                 src={ctaL}
                 alt="CTA-l"
+                loading="lazy"
+                decoding="async"
                 className="block w-auto max-w-[400px] object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.2)]"
               />
             </div>
@@ -31,6 +35,8 @@ function Cta() {
               <img
                 src={ctaL}
                 alt="CTA-l"
+                loading="lazy"
+                decoding="async"
                 className="block w-auto max-w-[400px] object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.2)] lg:max-w-[400px]"
               />
             </div>
@@ -39,17 +45,19 @@ function Cta() {
               <img
                 src={ctaR}
                 alt="CTA-r"
+                loading="lazy"
+                decoding="async"
                 className="block w-auto max-w-[400px] object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.2)] lg:max-w-[400px]"
               />
             </div>
 
             <div className="mx-auto w-full max-w-[760px] px-4 pb-7 pt-2 text-center sm:px-6 sm:py-10 sm:text-left lg:order-2 lg:max-w-[480px] lg:px-5 lg:py-12 lg:text-center">
               <p className="inline-flex rounded-full border border-[#d8d8d8] bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-[0.03em] text-[#4d4d4d] sm:px-4 sm:text-[12px]">
-                Free Trial Lesson with Assessment
+                アセスメント付き無料体験レッスン
               </p>
-              <h2 className="mt-3 text-[26px] font-bold leading-[0.95] tracking-[-0.02em] text-[#e8400a] sm:text-[30px] lg:text-[32px]">Sign up for free</h2>
+              <h2 className="mt-3 text-[26px] font-bold leading-[0.95] tracking-[-0.02em] text-[#e8400a] sm:text-[30px] lg:text-[32px]">無料で始める</h2>
               <a
-                href="https://brighture-edu.com/register/index.html"
+                href="/register/index.html"
                 className="group relative mt-7 inline-flex animate-bounce items-center justify-center overflow-hidden rounded-md border border-[#e8400a] bg-[#e8400a] px-7 py-2.5 text-[12px] font-bold text-white shadow-[0_0_0_0_rgba(232,64,10,0.35)] transition-all duration-300 ease-out sm:px-9 sm:py-3 sm:text-[14px] hover:-translate-y-0.5 hover:[animation-play-state:paused] hover:bg-white hover:text-[#e8400a] hover:shadow-[0_10px_24px_-8px_rgba(232,64,10,0.35)] active:translate-y-0 active:scale-[0.99]"
               >
                 <span className="pointer-events-none absolute inset-y-0 left-[-22%] w-[22%] -skew-x-12 bg-white/25 transition-transform duration-700 group-hover:translate-x-[580%]" />
@@ -58,7 +66,7 @@ function Cta() {
                   style={{ animation: 'ctaGlow 1.8s ease-in-out infinite' }}
                   aria-hidden="true"
                 />
-                Try a free trial lesson
+                無料体験レッスンに申し込む
                 <span className="ml-2 inline-block text-[11px] sm:text-[12px]" aria-hidden="true">
                   &gt;
                 </span>

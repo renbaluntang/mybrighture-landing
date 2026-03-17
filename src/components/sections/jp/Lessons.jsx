@@ -1,3 +1,5 @@
+import { useScrollReveal } from '../../../hooks/useScrollReveal'
+
 const lessonCards = [
   {
     title: '母音が変わるとリズムも整う',
@@ -26,6 +28,8 @@ const lessonCards = [
 ]
 
 function Lessons() {
+  const [cardsRef, cardsVisible] = useScrollReveal({ threshold: 0.08 })
+
   return (
     <section id="lessons" className="px-4 pb-20 pt-16 sm:px-8 lg:px-16 lg:pb-24 lg:pt-20">
       <div className="mx-auto w-full max-w-[1680px]">
@@ -36,20 +40,27 @@ function Lessons() {
           (Phonics and Pronunciation - Vowels) から順に学んでいただくことで、スムーズに発音を身につけられます。
         </p>
 
-        <div className="mx-auto mt-11 w-full md:w-10/12">
+        <div ref={cardsRef} className="mx-auto mt-11 w-full md:w-10/12">
           <div className="grid gap-6 md:grid-cols-2 lg:gap-7">
-          {lessonCards.map((card) => (
-            <article
-              key={card.title}
-              className="group rounded-2xl border border-transparent bg-[#efefef] px-6 py-8 transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:border-[#f2c2b2] hover:bg-[#f5f5f5] hover:shadow-lg sm:px-8 sm:py-9"
-            >
-              <h3 className="text-[20px] font-bold leading-[1.4] text-[#f24506]">{card.title}</h3>
-              <p className="mt-5 text-[14px] leading-[1.75] text-[#474747]">{card.description}</p>
-              <div className="mt-7 inline-flex min-w-[170px] items-center justify-center rounded-xl bg-[#f9f9f9] px-4 py-2.5 text-[15px] font-bold tracking-tight text-[#252525] transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:bg-[#fff3ee]">
-                {card.code}
+            {lessonCards.map((card, index) => (
+              <div
+                key={card.title}
+                className="transition-[opacity,transform] duration-500 ease-out"
+                style={{
+                  opacity: cardsVisible ? 1 : 0,
+                  transform: cardsVisible ? 'translateY(0)' : 'translateY(28px)',
+                  transitionDelay: cardsVisible ? `${index * 100}ms` : '0ms',
+                }}
+              >
+                <article className="group h-full rounded-2xl border border-transparent bg-[#efefef] px-6 py-8 transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:border-[#f2c2b2] hover:bg-[#f5f5f5] hover:shadow-lg sm:px-8 sm:py-9">
+                  <h3 className="text-[20px] font-bold leading-[1.4] text-[#f24506]">{card.title}</h3>
+                  <p className="mt-5 text-[14px] leading-[1.75] text-[#474747]">{card.description}</p>
+                  <div className="mt-7 inline-flex min-w-[170px] items-center justify-center rounded-xl bg-[#f9f9f9] px-4 py-2.5 text-[15px] font-bold tracking-tight text-[#252525] transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:bg-[#fff3ee]">
+                    {card.code}
+                  </div>
+                </article>
               </div>
-            </article>
-          ))}
+            ))}
           </div>
         </div>
       </div>

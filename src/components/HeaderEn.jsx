@@ -3,7 +3,7 @@ import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import logoImage from '../assets/image/logo.png'
 
-const applyUrl = 'https://brighture-edu.com/register/index.html'
+const applyUrl = '/register/index.html'
 
 function HeaderEn() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

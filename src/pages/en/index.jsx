@@ -1,25 +1,28 @@
 import { useEffect } from 'react'
+import Footer from '../../components/Footer.jsx'
 import HeaderEn from '../../components/HeaderEn.jsx'
 import IndexBackground from '../../components/backgrounds/IndexBackground.jsx'
-import Hero from '../../components/sections/en/Hero.jsx'
-import PainPoints from '../../components/sections/en/PainPoints.jsx'
-import PronunciationPromise from '../../components/sections/en/PronunciationPromise.jsx'
-import Essentials from '../../components/sections/en/Essentials.jsx'
-import WhyBrighture from '../../components/sections/en/WhyBrighture.jsx'
-import Lessons from '../../components/sections/en/Lessons.jsx'
-import Testimonials from '../../components/sections/en/Testimonials.jsx'
-import Pricing from '../../components/sections/en/Pricing.jsx'
-import Faq from '../../components/sections/en/Faq.jsx'
+import ScrollProgressBar from '../../components/backgrounds/ScrollProgressBar.jsx'
 import Cta from '../../components/sections/en/Cta.jsx'
-import Footer from '../../components/Footer.jsx'
+import Essentials from '../../components/sections/en/Essentials.jsx'
+import Faq from '../../components/sections/en/Faq.jsx'
+import Hero from '../../components/sections/en/Hero.jsx'
+import Lessons from '../../components/sections/en/Lessons.jsx'
+import PainPoints from '../../components/sections/en/PainPoints.jsx'
+import Pricing from '../../components/sections/en/Pricing.jsx'
+import PronunciationPromise from '../../components/sections/en/PronunciationPromise.jsx'
+import Testimonials from '../../components/sections/en/Testimonials.jsx'
+import WhyBrighture from '../../components/sections/en/WhyBrighture.jsx'
+import enLandingConfig from './config.js'
 
-function IndexEnPage() {
+function EnLandingPage() {
   useEffect(() => {
-    document.title = 'Brighture English Academy | Pronunciation Coaching'
+    document.title = enLandingConfig.title
   }, [])
 
   return (
     <>
+      <ScrollProgressBar />
       <main id="top" className="relative w-full text-[#12151d]">
         <IndexBackground />
 
@@ -56,4 +59,4 @@ function IndexEnPage() {
   )
 }
 
-export default IndexEnPage
+export default EnLandingPage

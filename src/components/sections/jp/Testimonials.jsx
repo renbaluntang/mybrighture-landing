@@ -218,7 +218,7 @@ function Testimonials() {
         {/* Header */}
         <div className="grid items-start !items-center gap-8 md:grid-cols-2 md:gap-10">
           <div>
-            <p className="text-[15px] font-bold text-[#e8400a]">● 受講者の声</p>
+            <span className="text-sm font-bold tracking-[0.08em] text-[#e8400a] sm:text-base">Student Voice</span>
             <h2
               className="mt-5 text-[32px] font-semibold not-italic leading-[1.25] text-[#1f2d4a]"
               style={{ fontFamily: 'var(--s-font-ee93ad8a)' }}
@@ -242,7 +242,7 @@ function Testimonials() {
               return (
                 <article
                   key={item.key}
-                  className={`flex w-[92%] shrink-0 flex-col rounded-2xl border p-6 transition-all duration-500 sm:w-[64%] lg:w-[36%] xl:w-[27%] ${
+                  className={`flex w-[92%] shrink-0 flex-col rounded-2xl border p-6 transition-all duration-500 sm:w-[80%] lg:w-[46%] xl:w-[31%] ${
                     isFeatured
                       ? 'scale-[1.055] border-[#f38a6a] bg-white shadow-[0_24px_40px_rgba(21,34,58,0.16)]'
                       : 'border-[#dde3e8] bg-[#f8f9fa]'
@@ -273,35 +273,58 @@ function Testimonials() {
         </div>
 
         {/* Controls */}
-        <div className="mt-6 flex items-center justify-end gap-3">
+        <div className="mt-6 flex items-center justify-between gap-3">
 
-          {/* Paused indicator — fades in when autoplay is stopped by button press */}
-          <span
-            className={`mr-1 text-[12px] text-[#bbb] transition-opacity duration-500 ${
-              isPlaying ? 'pointer-events-none opacity-0' : 'opacity-100'
-            }`}
-            aria-live="polite"
-          >
-            自動再生を一時停止中 (10秒後に再開)
-          </span>
+          {/* Dot indicators */}
+          <div className="flex items-center gap-2">
+            {baseTestimonials.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  stopAutoPlay()
+                  slideTo(N + i)
+                  scheduleResume()
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                  CARDS[activeIndex]?.realIndex === i
+                    ? 'w-6 bg-[#e8400a]'
+                    : 'w-2 bg-[#d0d0d0] hover:bg-[#aaa]'
+                }`}
+                aria-label={`${i + 1}番目の声に移動`}
+              />
+            ))}
+          </div>
 
-          <button
-            type="button"
-            onClick={handlePrev}
-            className={getButtonClass('prev')}
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeftIcon className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-3">
+            {/* Paused indicator */}
+            <span
+              className={`text-[12px] text-[#bbb] transition-opacity duration-500 ${
+                isPlaying ? 'pointer-events-none opacity-0' : 'opacity-100'
+              }`}
+              aria-live="polite"
+            >
+              自動再生を一時停止中 (10秒後に再開)
+            </span>
 
-          <button
-            type="button"
-            onClick={handleNext}
-            className={getButtonClass('next')}
-            aria-label="Next testimonial"
-          >
-            <ChevronRightIcon className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              onClick={handlePrev}
+              className={getButtonClass('prev')}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeftIcon className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              className={getButtonClass('next')}
+              aria-label="Next testimonial"
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+            </button>
+          </div>
 
         </div>
       </div>

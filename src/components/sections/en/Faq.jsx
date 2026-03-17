@@ -30,7 +30,7 @@ function Faq() {
     <section id="faq" className="px-4 pb-20 pt-14 sm:px-8 lg:px-16">
       <div className="mx-auto w-full max-w-[1680px]">
         <div className="rounded-3xl bg-[#f6f4f2] p-6 sm:p-10 lg:p-12">
-          <div className="grid gap-10 lg:grid-cols-[minmax(260px,420px)_1fr] lg:gap-14">
+          <div className="grid gap-10 lg:grid-cols-[minmax(200px,1fr)_minmax(0,4fr)] lg:gap-14">
             <div>
               <h2 className="text-[clamp(1.9rem,2.2vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.01em] text-[#1f2128]">FAQs</h2>
               <p className="mt-4 text-[clamp(0.98rem,1.05vw,1.1rem)] leading-[1.75] text-[#4f4f4f] sm:mt-5">
@@ -46,13 +46,13 @@ function Faq() {
                   <article
                     key={item.question}
                     className={`border-b border-[#d7d2cb] px-1 pb-2.5 transition-colors sm:px-2 sm:pb-4 ${
-                      isOpen ? 'rounded-xl bg-[#fff1e9]' : ''
+                      isOpen ? 'rounded-xl border-l-4 border-l-[#e8400a] pl-3 shadow-[0_10px_24px_-20px_rgba(0,0,0,0.35)]' : ''
                     }`}
                   >
                     <button
                       type="button"
                       onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                      className="group flex w-full cursor-pointer items-start justify-between gap-3 rounded-lg px-2 py-2 text-left transition-all duration-200 hover:bg-[#ffe7dc] active:scale-[0.995] active:bg-[#ffd9c6] sm:gap-4"
+                      className="group flex w-full cursor-pointer items-start justify-between gap-3 rounded-lg px-2 py-2 text-left transition-all duration-200 hover:bg-transparent active:scale-[0.995] sm:gap-4"
                       aria-expanded={isOpen}
                     >
                       <h3
@@ -65,8 +65,8 @@ function Faq() {
                       <span
                         className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[16px] font-semibold leading-none transition-all duration-200 sm:h-7 sm:w-7 sm:text-[18px] ${
                           isOpen
-                            ? 'border-[#e8400a] bg-[#ffd9c6] text-[#c23809]'
-                            : 'border-[#5b5b5b] text-[#5b5b5b] group-hover:border-[#e8400a] group-hover:bg-[#ffe7dc] group-hover:text-[#e8400a]'
+                            ? 'border-[#e8400a] bg-white text-[#e8400a] shadow-[0_6px_16px_-12px_rgba(232,64,10,0.5)]'
+                            : 'border-[#5b5b5b] text-[#5b5b5b] group-hover:border-[#e8400a] group-hover:text-[#e8400a]'
                         }`}
                         aria-hidden="true"
                       >
@@ -74,11 +74,17 @@ function Faq() {
                       </span>
                     </button>
 
-                    {isOpen && (
-                      <p className="pr-9 text-[clamp(0.94rem,0.82vw,1rem)] leading-[1.8] text-[#4f4f4f] sm:pr-12">
-                        {item.answer}
-                      </p>
-                    )}
+                    <div
+                      className={`grid transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] ${
+                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="whitespace-pre-line pb-2 pr-9 text-[clamp(0.94rem,0.82vw,1rem)] leading-[1.8] text-[#4f4f4f] sm:pr-12">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </div>
                   </article>
                 )
               })}

@@ -94,7 +94,7 @@ function WhyBrighture() {
                 <article
                   key={feature.title}
                   style={{ transitionDelay: `${baseAnimationDelay + index * 90}ms` }}
-                  className={`mx-auto max-w-[300px] transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] lg:max-w-none ${
+                  className={`mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:bg-white hover:shadow-md lg:max-w-none ${
                     isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
                   }`}
                 >
@@ -110,6 +110,8 @@ function WhyBrighture() {
             <img
               src={section5Image}
               alt="Brighture instructors"
+              loading="lazy"
+              decoding="async"
               className="h-auto w-full object-contain"
             />
           </div>
@@ -122,7 +124,7 @@ function WhyBrighture() {
                 <article
                   key={feature.title}
                   style={{ transitionDelay: `${baseAnimationDelay + (index + 2) * 90}ms` }}
-                  className={`mx-auto max-w-[300px] transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] lg:max-w-none ${
+                  className={`mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:bg-white hover:shadow-md lg:max-w-none ${
                     isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
                   }`}
                 >
@@ -142,7 +144,7 @@ function WhyBrighture() {
                 <article
                   key={`md-${feature.title}`}
                   style={{ transitionDelay: `${baseAnimationDelay + index * 90}ms` }}
-                  className={`mx-auto max-w-[300px] transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] ${
+                  className={`mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-500 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:bg-white hover:shadow-md ${
                     isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
                   }`}
                 >
@@ -157,7 +159,7 @@ function WhyBrighture() {
 
         <div className="mt-8 flex justify-center sm:mt-9">
           <a
-            href="https://brighture-edu.com/register/index.html"
+            href="/register/index.html"
             className="group relative inline-flex items-center justify-center rounded-md border border-[#e8400a] bg-[#e8400a] px-7 py-2.5 text-[15px] tracking-tight transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:bg-transparent"
           >
             <span className="font-bold text-white transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:text-[#e8400a]">

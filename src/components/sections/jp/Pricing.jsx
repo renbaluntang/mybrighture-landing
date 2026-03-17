@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 const planTypesJa = {
   subscription: {
@@ -23,7 +23,8 @@ const planTypesJa = {
           'ポイントが足りなくなったら1ポイント単位で追加購入可能',
           'いつでも停止可能',
         ],
-        note: '※ベーシックプランを購入すると、プレミアムプランで購入したポイントは破棄されます。',
+        note: 'ベーシックプランを購入すると、プレミアムプランで購入したポイントは破棄されます。',
+        popular: false,
       },
       {
         name: 'サブスク40',
@@ -40,7 +41,8 @@ const planTypesJa = {
           'ポイントが足りなくなったら1ポイント単位で追加購入可能',
           'いつでも停止可能',
         ],
-        note: '※ベーシックプランを購入すると、プレミアムプランで購入したポイントは破棄されます。',
+        note: 'ベーシックプランを購入すると、プレミアムプランで購入したポイントは破棄されます。',
+        popular: true,
       },
     ],
   },
@@ -65,7 +67,8 @@ const planTypesJa = {
           '有効期限日の当日のレッスンまで予約可能',
           'ポイントが足りなくなったら1ポイント単位で追加購入可能',
         ],
-        note: '※プレミアムプランを購入すると、ベーシックプランで購入したポイントは破棄されます。',
+        note: 'プレミアムプランを購入すると、ベーシックプランで購入したポイントは破棄されます。',
+        popular: false,
       },
       {
         name: 'ワンタイム100',
@@ -81,7 +84,8 @@ const planTypesJa = {
           '有効期限日の当日のレッスンまで予約可能',
           'ポイントが足りなくなったら1ポイント単位で追加購入可能',
         ],
-        note: '※プレミアムプランを購入すると、ベーシックプランで購入したポイントは破棄されます。',
+        note: 'プレミアムプランを購入すると、ベーシックプランで購入したポイントは破棄されます。',
+        popular: false,
       },
     ],
   },
@@ -91,95 +95,161 @@ function Pricing_JP() {
   const [activeType, setActiveType] = useState('subscription')
   const [displayType, setDisplayType] = useState('subscription')
   const [isVisible, setIsVisible] = useState(true)
+  const [slideDirection, setSlideDirection] = useState('right')
+  const transitionTimerRef = useRef(undefined)
   const activePlan = useMemo(() => planTypesJa[displayType], [displayType])
 
   useEffect(() => {
-    if (activeType === displayType) return undefined
+    return () => {
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current)
+      }
+    }
+  }, [])
+
+  const handleTypeChange = (nextType) => {
+    if (nextType === activeType) return
+
+    setSlideDirection(nextType === 'oneTime' ? 'right' : 'left')
+    setActiveType(nextType)
     setIsVisible(false)
-    const timer = setTimeout(() => {
-      setDisplayType(activeType)
+    if (transitionTimerRef.current) {
+      clearTimeout(transitionTimerRef.current)
+    }
+    transitionTimerRef.current = setTimeout(() => {
+      setDisplayType(nextType)
       setIsVisible(true)
     }, 180)
-    return () => clearTimeout(timer)
-  }, [activeType, displayType])
+  }
 
   return (
-    <section id="pricing" className="px-4 py-14 sm:px-8 sm:py-20 lg:px-16">
-      <div className="mx-auto w-full max-w-[1680px]">
-        <div className="flex flex-wrap justify-center gap-3">
-          <button
-            type="button"
-            onClick={() => setActiveType('subscription')}
-            className={`cursor-pointer rounded-md border px-7 py-3 text-[14px] font-semibold transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] active:scale-[0.99] sm:min-w-[220px] ${
-              activeType === 'subscription'
-                ? 'border-[#e8400a] bg-[#e8400a] text-white'
-                : 'border-[#6f7784] bg-white text-[#2a2f36] hover:bg-[#f4f6f8]'
-            }`}
-          >
-            サブスクプラン
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveType('oneTime')}
-            className={`cursor-pointer rounded-md border px-7 py-3 text-[14px] font-semibold transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] active:scale-[0.99] sm:min-w-[220px] ${
-              activeType === 'oneTime'
-                ? 'border-[#e8400a] bg-[#e8400a] text-white'
-                : 'border-[#6f7784] bg-white text-[#2a2f36] hover:bg-[#f4f6f8]'
-            }`}
-          >
-            ワンタイムプラン
-          </button>
+    <section id="pricing" className="relative px-4 py-16 sm:px-8 sm:py-24 lg:px-16 overflow-hidden bg-white">
+      {/* Decorative Blob */}
+      <div className="absolute top-[20%] right-[-5%] w-[400px] h-[400px] bg-gradient-to-t from-[#fde8e3]/40 to-[#fff4f0]/20 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="mx-auto w-full max-w-[1680px] text-center relative z-10">
+        <span className="text-sm font-bold tracking-[0.08em] text-[#e8400a] sm:text-base">
+          料金プラン
+        </span>
+        <h2 className="text-[32px] font-bold leading-[1.15] text-[#1f2128] sm:text-[36px] md:text-[40px]">
+          シンプルで<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e8400a] to-[#ff7b54]">わかりやすい料金</span>
+        </h2>
+
+        {/* Toggle Design */}
+        <div className="mt-12 flex justify-center w-full">
+          <div className="relative inline-flex rounded-xl p-1.5 bg-[#f1f5f9] shadow-inner border border-[#e2e8f0]">
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-lg bg-white shadow-sm transition-transform duration-300 ease-out ${
+                activeType === 'subscription' ? 'translate-x-0' : 'translate-x-full'
+              }`}
+            />
+            <button
+              type="button"
+              onClick={() => handleTypeChange('subscription')}
+              className={`relative z-10 cursor-pointer rounded-lg px-8 py-3.5 text-sm font-bold transition-all duration-300 ease-out sm:min-w-[200px] ${
+                activeType === 'subscription'
+                  ? 'text-[#1a202c]'
+                  : 'text-[#64748b] hover:text-[#e8400a]'
+              }`}
+            >
+              サブスクプラン
+            </button>
+            <button
+              type="button"
+              onClick={() => handleTypeChange('oneTime')}
+              className={`relative z-10 cursor-pointer rounded-lg px-8 py-3.5 text-sm font-bold transition-all duration-300 ease-out sm:min-w-[200px] ${
+                activeType === 'oneTime'
+                  ? 'text-[#1a202c]'
+                  : 'text-[#64748b] hover:text-[#e8400a]'
+              }`}
+            >
+              ワンタイムプラン
+            </button>
+          </div>
         </div>
 
-        <div
-          className={`transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-          }`}
-        >
-          <div className="mt-12 border-l-[6px] border-[#b9bec6] pl-4">
-            <h2 className="text-[24px] font-bold leading-tight text-[#1f2128] sm:text-[26px]">{activePlan.title}</h2>
+        <div className="relative mt-16 w-full text-left">
+          <div
+            className={`transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] ${
+              isVisible
+                ? 'translate-x-0 opacity-100'
+                : slideDirection === 'right'
+                  ? '-translate-x-6 opacity-0'
+                  : 'translate-x-6 opacity-0'
+            }`}
+          >
+          <div className="mx-auto max-w-3xl text-center mb-10">
+             <h3 className="text-lg font-bold leading-tight text-[#1a202c] sm:text-xl mb-3">{activePlan.title}</h3>
+             <p className="text-sm leading-[1.65] text-[#4a5568] font-medium mx-auto max-w-2xl">
+               {activePlan.description}
+             </p>
           </div>
-          <p className="mt-4 max-w-6xl text-[13px] leading-[1.7] text-[#4a4a4a] sm:text-[14px]">{activePlan.description}</p>
 
-          <div className="mx-auto mt-7 w-full lg:w-10/12">
-            <div className="grid gap-4 md:grid-cols-2">
+          <div className="mx-auto mt-8 w-full max-w-[1080px]">
+            <div className="grid gap-5 md:grid-cols-2 lg:gap-6 justify-center">
               {activePlan.cards.map((card) => (
                 <article
                   key={card.name}
-                  className="flex h-full flex-col rounded-md border border-[#cfd5dc] bg-[#f6f7f8] transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-1 hover:border-[#bcc6cf] hover:shadow-lg"
+                  className={`group relative flex flex-col rounded-[1.25rem] bg-white transition-all duration-300 ease-out hover:-translate-y-1
+                    ${card.popular 
+                      ? 'border-2 border-[#e8400a] shadow-[0_20px_40px_-15px_rgba(232,64,10,0.2)]' 
+                      : 'border border-[#e2e8f0] shadow-[0_4px_15px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-[#cbd5e1]'
+                    }
+                  `}
                 >
-                  <div className="grow p-5 sm:p-6">
-                    <h3 className="text-[16px] font-bold leading-tight text-[#1f2128] sm:text-[18px]">{card.name}</h3>
-                    <p className="mt-3 text-[13px] leading-[1.65] text-[#4a4a4a] sm:text-[14px]">{card.summary}</p>
+                  {/* Popular Badge */}
+                  {card.popular && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                      <span className="inline-block py-1 px-4 rounded-full bg-gradient-to-r from-[#e8400a] to-[#ff7b54] text-white text-xs font-bold uppercase tracking-widest shadow-md">
+                        人気プラン
+                      </span>
+                    </div>
+                  )}
 
-                    <div className="mt-5 flex items-end gap-2">
-                      <p className="text-[26px] font-extrabold leading-none text-[#1f2128] sm:text-[30px]">{card.price}</p>
-                      <p className="pb-1 text-[13px] text-[#4a4a4a] sm:text-[14px]">{card.priceSuffix}</p>
+                  <div className="grow p-5 sm:p-6 flex flex-col">
+                    <h3 className="text-base font-extrabold leading-tight text-[#1a202c] tracking-tight sm:text-lg">{card.name}</h3>
+                    <p className="mt-2 text-xs leading-[1.6] text-[#64748b] font-medium">{card.summary}</p>
+
+                    <div className="mt-5 mb-5 flex items-baseline gap-2 border-b border-[#e2e8f0] pb-5">
+                      <p className="text-xl font-extrabold tracking-tight text-[#1a202c] sm:text-2xl">{card.price}</p>
+                      <p className="text-xs font-bold text-[#64748b] uppercase tracking-wide">{card.priceSuffix}</p>
                     </div>
 
-                    <a
-                      href="https://brighture-edu.com/register/index.html"
-                      className="mt-4 inline-flex w-full items-center justify-center rounded border border-[#e8400a] bg-[#e8400a] px-5 py-2.5 text-[14px] font-bold text-white transition-all duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:-translate-y-0.5 hover:bg-[#cf3808] hover:shadow-md active:translate-y-0 active:scale-[0.99]"
-                    >
-                      プランを購入する
-                    </a>
-
-                    <ul className="mt-5 space-y-2">
+                    <ul className="space-y-3 mb-7 flex-grow">
                       {card.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-[13px] leading-[1.55] text-[#4a4a4a] sm:text-[14px]">
-                          <span className="mt-0.5 text-[16px] font-bold text-[#128136]">✓</span>
-                          <span>{item}</span>
+                        <li key={item} className="flex items-start text-xs leading-[1.5] text-[#4a5568] font-medium">
+                           <div className="flex-shrink-0 flex items-center justify-center w-4.5 h-4.5 rounded-full bg-[#e8f5e9] mr-2.5 mt-0.5">
+                             <span className="text-[12px] font-bold text-[#10b981]">✓</span>
+                           </div>
+                           <span className="flex-1">{item}</span>
                         </li>
                       ))}
                     </ul>
+
+                    <div className="mt-auto">
+                        <a
+                          href="/register/index.html"
+                          className={`flex w-full items-center justify-center rounded-lg px-4.5 py-3 text-sm font-bold transition-all duration-300 ease-out active:scale-[0.98] ${
+                            card.popular
+                              ? 'bg-gradient-to-r from-[#e8400a] to-[#ff6a3d] text-white shadow-[0_8px_20px_-5px_rgba(232,64,10,0.4)] hover:shadow-[0_12px_25px_-5px_rgba(232,64,10,0.5)]'
+                              : 'bg-[#f1f5f9] text-[#1a202c] hover:bg-[#e2e8f0]'
+                          }`}
+                        >
+                          プランを購入する
+                        </a>
+                    </div>
                   </div>
 
-                  <div className="border-t border-[#d7dde3] bg-[#eef1f4] px-5 py-2.5 text-[10px] leading-[1.5] text-[#6b6b6b] sm:text-[11px]">
-                    {card.note}
+                  <div className="rounded-b-[1.25rem] bg-[#f8fafc] px-5 py-2.5 border-t border-[#edf2f7]">
+                     <p className="text-xs leading-[1.5] text-[#94a3b8] font-medium">
+                       ※ {card.note}
+                     </p>
                   </div>
                 </article>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </div>

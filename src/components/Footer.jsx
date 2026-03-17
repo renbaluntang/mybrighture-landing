@@ -21,7 +21,7 @@ function Footer() {
 
             <div className="flex items-center lg:justify-end">
               <a
-                href="https://brighture-edu.com/register/index.html"
+                href="/register/index.html"
                 className="inline-flex items-center border-b border-white/40 pb-1 text-sm text-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] active:translate-y-0 active:scale-[0.98] active:border-white/70 active:text-white/85"
               >
                 Get free trial lesson now
