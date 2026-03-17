@@ -49,30 +49,29 @@ function CtaCloudLayer() {
         {clouds.map((cloud) => {
           const shape = cloudShapes[cloud.shape] ?? cloudShapes.puffWide
           return (
-          <span
-            key={cloud.id}
-            className="absolute rounded-full bg-white"
-            style={{
-              left: cloud.left,
-              bottom: cloud.bottom,
-              width: cloud.width,
-              height: cloud.height,
-              opacity: cloud.opacity,
-              // opacity: Math.min(cloud.opacity + 0.08, 0.72),
-              // filter: 'blur(0.6px)',
-              animation: `driftCloud ${cloud.duration} ease-in-out infinite`,
-              animationDelay: cloud.delay,
-            }}
-          >
             <span
-              className="absolute rounded-full bg-inherit"
-              style={shape.one}
-            />
-            <span
-              className="absolute rounded-full bg-inherit"
-              style={shape.two}
-            />
-          </span>
+              key={cloud.id}
+              className="absolute rounded-full bg-white"
+              style={{
+                left: cloud.left,
+                bottom: cloud.bottom,
+                width: cloud.width,
+                height: cloud.height,
+                opacity: Math.min(cloud.opacity + 0.4, 0.95),
+                filter: 'drop-shadow(0px 8px 16px rgba(0,0,0,0.06))',
+                animation: `driftCloud ${cloud.duration} ease-in-out infinite`,
+                animationDelay: cloud.delay,
+              }}
+            >
+              <span
+                className="absolute rounded-full bg-inherit"
+                style={shape.one}
+              />
+              <span
+                className="absolute rounded-full bg-inherit"
+                style={shape.two}
+              />
+            </span>
           )
         })}
       </div>

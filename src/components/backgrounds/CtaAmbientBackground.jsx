@@ -6,7 +6,7 @@ function CtaAmbientBackground() {
         aria-hidden="true"
       />
       <span
-        className="pointer-events-none absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-[#f8d9cc]/35 blur-2xl"
+        className="pointer-events-none absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-white/60 blur-2xl"
         aria-hidden="true"
       />
     </>

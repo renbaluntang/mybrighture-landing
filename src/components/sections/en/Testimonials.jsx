@@ -42,14 +42,12 @@ function Testimonials() {
   const trackRef       = useRef(null)
   const activeIndexRef = useRef(INITIAL_INDEX)
   const isAnimatingRef = useRef(false)
-  const autoPlayRef    = useRef(null)  // setInterval handle
-  const resumeTimerRef = useRef(null)  // setTimeout handle for 10s resume
+  const autoPlayRef    = useRef(null)
+  const resumeTimerRef = useRef(null)
 
   const [activeIndex, setActiveIndex] = useState(INITIAL_INDEX)
-  const [pressedBtn,  setPressedBtn]  = useState(null)   // null | 'prev' | 'next'
+  const [pressedBtn,  setPressedBtn]  = useState(null)
   const [isPlaying,   setIsPlaying]   = useState(true)
-
-  // ── scroll helpers ────────────────────────────────────────────────────────
 
   const getScrollLeftForIndex = useCallback((idx) => {
     const track = trackRef.current
@@ -94,8 +92,6 @@ function Testimonials() {
     slideTo(activeIndexRef.current + dir)
   }, [slideTo])
 
-  // ── autoplay ──────────────────────────────────────────────────────────────
-
   const startAutoPlay = useCallback(() => {
     if (autoPlayRef.current) clearInterval(autoPlayRef.current)
     autoPlayRef.current = setInterval(() => move(1), AUTOPLAY_INTERVAL)
@@ -117,15 +113,12 @@ function Testimonials() {
     }
   }, [])
 
-  // Schedule autoplay to resume after RESUME_DELAY ms of button inactivity
   const scheduleResume = useCallback(() => {
     clearResumeTimer()
     resumeTimerRef.current = setTimeout(() => {
       startAutoPlay()
     }, RESUME_DELAY)
   }, [clearResumeTimer, startAutoPlay])
-
-  // ── button handlers ───────────────────────────────────────────────────────
 
   const handlePrev = () => {
     stopAutoPlay()
@@ -145,8 +138,6 @@ function Testimonials() {
     scheduleResume()
   }
 
-  // ── lifecycle ─────────────────────────────────────────────────────────────
-
   useEffect(() => {
     const raf = requestAnimationFrame(() => {
       jumpTo(INITIAL_INDEX)
@@ -159,7 +150,6 @@ function Testimonials() {
     }
   }, [jumpTo, startAutoPlay, stopAutoPlay, clearResumeTimer])
 
-  // Pause on hover / touch of the track; resume when cursor leaves
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
@@ -176,8 +166,6 @@ function Testimonials() {
       track.removeEventListener('touchend',    onLeave)
     }
   }, [stopAutoPlay, startAutoPlay, clearResumeTimer])
-
-  // ── render ────────────────────────────────────────────────────────────────
 
   const getButtonClass = (which) => {
     const pressed = pressedBtn === which
@@ -197,7 +185,7 @@ function Testimonials() {
         {/* Header */}
         <div className="grid items-start !items-center gap-8 md:grid-cols-2 md:gap-10">
           <div>
-            <p className="text-[15px] font-bold text-[#e8400a]">● Student Voice</p>
+            <span className="text-sm font-bold tracking-[0.08em] text-[#e8400a] sm:text-base">Student Voice</span>
             <h2
               className="mt-5 text-[32px] font-semibold not-italic leading-[1.25] text-[#1f2d4a]"
               style={{ fontFamily: 'var(--s-font-ee93ad8a)' }}
@@ -221,7 +209,8 @@ function Testimonials() {
               return (
                 <article
                   key={item.key}
-                  className={`flex w-[92%] shrink-0 flex-col rounded-2xl border p-6 transition-all duration-500 sm:w-[64%] lg:w-[36%] xl:w-[27%] ${
+                  // ↓ KEY CHANGE: xl:w-[31%] shows exactly 3 cards (3 × 31% + 2 gaps ≈ 100%)
+                  className={`flex w-[92%] shrink-0 flex-col rounded-2xl border p-6 transition-all duration-500 sm:w-[80%] lg:w-[46%] xl:w-[31%] ${
                     isFeatured
                       ? 'scale-[1.055] border-[#f38a6a] bg-white shadow-[0_24px_40px_rgba(21,34,58,0.16)]'
                       : 'border-[#dde3e8] bg-[#f8f9fa]'
@@ -252,35 +241,57 @@ function Testimonials() {
         </div>
 
         {/* Controls */}
-        <div className="mt-6 flex items-center justify-end gap-3">
+        <div className="mt-6 flex items-center justify-between gap-3">
 
-          {/* Paused indicator — fades in when autoplay is stopped by button press */}
-          <span
-            className={`mr-1 text-[12px] text-[#bbb] transition-opacity duration-500 ${
-              isPlaying ? 'pointer-events-none opacity-0' : 'opacity-100'
-            }`}
-            aria-live="polite"
-          >
-            自動再生を一時停止中 (10秒後に再開)
-          </span>
+          {/* Dot indicators */}
+          <div className="flex items-center gap-2">
+            {baseTestimonials.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  stopAutoPlay()
+                  slideTo(N + i)
+                  scheduleResume()
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                  CARDS[activeIndex]?.realIndex === i
+                    ? 'w-6 bg-[#e8400a]'
+                    : 'w-2 bg-[#d0d0d0] hover:bg-[#aaa]'
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
 
-          <button
-            type="button"
-            onClick={handlePrev}
-            className={getButtonClass('prev')}
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeftIcon className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-3">
+            <span
+              className={`text-[12px] text-[#bbb] transition-opacity duration-500 ${
+                isPlaying ? 'pointer-events-none opacity-0' : 'opacity-100'
+              }`}
+              aria-live="polite"
+            >
+              Autoplay paused &middot; resumes in 10s
+            </span>
 
-          <button
-            type="button"
-            onClick={handleNext}
-            className={getButtonClass('next')}
-            aria-label="Next testimonial"
-          >
-            <ChevronRightIcon className="h-5 w-5" />
-          </button>
+            <button
+              type="button"
+              onClick={handlePrev}
+              className={getButtonClass('prev')}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeftIcon className="h-5 w-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              className={getButtonClass('next')}
+              aria-label="Next testimonial"
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+            </button>
+          </div>
 
         </div>
       </div>
@@ -289,4 +300,3 @@ function Testimonials() {
 }
 
 export default Testimonials
- 

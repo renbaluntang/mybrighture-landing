@@ -1,20 +1,28 @@
+import { useEffect } from 'react'
+import Footer from '../../components/Footer.jsx'
 import Header from '../../components/Header.jsx'
 import IndexBackground from '../../components/backgrounds/IndexBackground.jsx'
-import Hero from '../../components/sections/jp/Hero.jsx'
-import PainPoints from '../../components/sections/jp/PainPoints.jsx'
-import PronunciationPromise from '../../components/sections/jp/PronunciationPromise.jsx'
-import Essentials from '../../components/sections/jp/Essentials.jsx'
-import WhyBrighture from '../../components/sections/jp/WhyBrighture.jsx'
-import Lessons from '../../components/sections/jp/Lessons.jsx'
-import Testimonials from '../../components/sections/jp/Testimonials.jsx'
-import Pricing_JP from '../../components/sections/jp/Pricing.jsx'
-import Faq from '../../components/sections/jp/Faq.jsx'
+import ScrollProgressBar from '../../components/backgrounds/ScrollProgressBar.jsx'
 import Cta from '../../components/sections/jp/Cta.jsx'
-import Footer from '../../components/Footer.jsx'
+import Essentials from '../../components/sections/jp/Essentials.jsx'
+import Faq from '../../components/sections/jp/Faq.jsx'
+import Hero from '../../components/sections/jp/Hero.jsx'
+import Lessons from '../../components/sections/jp/Lessons.jsx'
+import PainPoints from '../../components/sections/jp/PainPoints.jsx'
+import Pricing from '../../components/sections/jp/Pricing.jsx'
+import PronunciationPromise from '../../components/sections/jp/PronunciationPromise.jsx'
+import Testimonials from '../../components/sections/jp/Testimonials.jsx'
+import WhyBrighture from '../../components/sections/jp/WhyBrighture.jsx'
+import jpLandingConfig from './config.js'
 
-function IndexPage() {
+function JpLandingPage() {
+  useEffect(() => {
+    document.title = jpLandingConfig.title
+  }, [])
+
   return (
     <>
+      <ScrollProgressBar />
       <main id="top" className="relative w-full text-[#12151d]">
         <IndexBackground />
 
@@ -41,7 +49,7 @@ function IndexPage() {
           <Testimonials />
         </div>
         <div className="mx-auto w-full max-w-[1680px]">
-          <Pricing_JP />
+          <Pricing />
           <Faq />
           <Cta />
         </div>
@@ -51,4 +59,4 @@ function IndexPage() {
   )
 }
 
-export default IndexPage
+export default JpLandingPage

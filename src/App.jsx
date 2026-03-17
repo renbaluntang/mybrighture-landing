@@ -1,8 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import IndexJpPage from './pages/index/jp.jsx'
-import IndexEnPage from './pages/index/en.jsx'
+import { LANDING_BY_PATH } from './pages/registry.js'
 
 const normalizePath = (pathname) => {
   if (!pathname) return '/'
@@ -10,14 +9,15 @@ const normalizePath = (pathname) => {
   return trimmed || '/'
 }
 
-const englishPaths = new Set(['/en'])
-const japanesePaths = new Set(['/jp'])
-const currentPath = normalizePath(window.location.pathname)
-const ActivePage = englishPaths.has(currentPath)
-  ? IndexEnPage
-  : japanesePaths.has(currentPath)
-    ? IndexJpPage
-    : null
+const stripBasePath = (pathname, basePath) => {
+  if (basePath === '/') return pathname
+  if (pathname === basePath) return '/'
+  return pathname.startsWith(`${basePath}/`) ? pathname.slice(basePath.length) || '/' : pathname
+}
+
+const basePath = normalizePath(import.meta.env.BASE_URL || '/')
+const currentPath = normalizePath(stripBasePath(normalizePath(window.location.pathname), basePath))
+const ActivePage = LANDING_BY_PATH.get(currentPath) || null
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

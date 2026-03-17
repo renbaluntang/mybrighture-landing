@@ -17,7 +17,7 @@ const leftFeatures = [
   {
     title: 'Perfect for Beginners',
     description:
-      'Brighture’s pronunciation lessons are beginner-friendly. Start by copying your teacher’s sounds.',
+      "Brighture's pronunciation lessons are beginner-friendly. Start by copying your teacher's sounds.",
     icon: AcademicCapIcon,
   },
   {
@@ -38,7 +38,7 @@ const rightFeatures = [
   {
     title: 'Support',
     description:
-      'Our teachers are specially trained in Brighture’s unique program and are here to guide you every step of your learning journey.',
+      "Our teachers are specially trained in Brighture's unique program and are here to guide you every step of your learning journey.",
     icon: RibbonAwardIcon,
   },
 ]
@@ -64,7 +64,7 @@ function WhyBrighture() {
             {leftFeatures.map((feature) => {
               const Icon = feature.icon
               return (
-                <article key={feature.title} className="mx-auto max-w-[300px] lg:max-w-none">
+                <article key={feature.title} className="mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white hover:shadow-md lg:max-w-none">
                   <Icon className="mx-auto h-9 w-9 text-[#ff4a1f] sm:h-10 sm:w-10" aria-hidden="true" />
                   <h3 className="mt-3 text-[18px] font-bold text-[#1f2128]">{feature.title}</h3>
                   <p className="mx-auto mt-3 max-w-[280px] text-[14px] leading-[1.8] text-[#666]">{feature.description}</p>
@@ -74,14 +74,20 @@ function WhyBrighture() {
           </div>
 
           <div className="order-first mx-auto w-full max-w-[760px] md:col-span-2 lg:col-span-1 lg:order-none">
-            <img src={section5Image} alt="Brighture instructors" className="h-auto w-full object-contain" />
+            <img
+              src={section5Image}
+              alt="Brighture instructors"
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full object-contain"
+            />
           </div>
 
           <div className="space-y-8 md:hidden lg:block lg:space-y-11">
             {rightFeatures.map((feature) => {
               const Icon = feature.icon
               return (
-                <article key={feature.title} className="mx-auto max-w-[300px] lg:max-w-none">
+                <article key={feature.title} className="mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white hover:shadow-md lg:max-w-none">
                   <Icon className="mx-auto h-9 w-9 text-[#ff4a1f] sm:h-10 sm:w-10" aria-hidden="true" />
                   <h3 className="mt-3 text-[18px] font-bold text-[#1f2128]">{feature.title}</h3>
                   <p className="mx-auto mt-3 max-w-[280px] text-[14px] leading-[1.8] text-[#666]">{feature.description}</p>
@@ -94,7 +100,7 @@ function WhyBrighture() {
             {allFeatures.map((feature) => {
               const Icon = feature.icon
               return (
-                <article key={`md-${feature.title}`} className="mx-auto max-w-[300px]">
+                <article key={`md-${feature.title}`} className="mx-auto max-w-[300px] rounded-2xl p-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white hover:shadow-md">
                   <Icon className="mx-auto h-9 w-9 text-[#ff4a1f] sm:h-10 sm:w-10" aria-hidden="true" />
                   <h3 className="mt-3 text-[18px] font-bold text-[#1f2128]">{feature.title}</h3>
                   <p className="mx-auto mt-3 max-w-[280px] text-[14px] leading-[1.8] text-[#666]">{feature.description}</p>
@@ -106,7 +112,7 @@ function WhyBrighture() {
 
         <div className="mt-8 flex justify-center sm:mt-9">
           <a
-            href="https://brighture-edu.com/register/index.html"
+            href="/register/index.html"
             className="group relative inline-flex items-center justify-center rounded-md border border-[#e8400a] bg-[#e8400a] px-7 py-2.5 text-[15px] tracking-tight transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] hover:bg-transparent"
           >
             <span className="font-bold text-white transition-colors duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:text-[#e8400a]">

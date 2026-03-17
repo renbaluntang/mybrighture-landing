@@ -64,7 +64,7 @@ function Header() {
 
         <div className="flex items-center gap-2 sm:ml-auto lg:hidden">
           <a
-            href="https://brighture-edu.com/register/index.html"
+            href="/register/index.html"
             className="group relative hidden overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)] sm:inline-flex"
           >
             <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
@@ -84,7 +84,7 @@ function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="https://brighture-edu.com/register/index.html"
+            href="/register/index.html"
             className="group relative inline-flex overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)]"
           >
             <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
@@ -155,7 +155,7 @@ function Header() {
 
             <div className="mt-6 border-t border-[#d8dde3] pt-6">
               <a
-                href="https://brighture-edu.com/register/index.html"
+                href="/register/index.html"
                 className="group relative inline-flex overflow-hidden rounded-lg border border-[#f24506] bg-transparent px-4 py-2 text-sm font-bold leading-[1.8] tracking-tight [font-family:var(--s-font-ee93ad8a)]"
               >
                 <span className="absolute inset-0 origin-right bg-[#f24506] transition-transform duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)] group-hover:scale-x-0" />
