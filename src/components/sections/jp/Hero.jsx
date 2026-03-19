@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/24/solid'
-import heroImage from '../../../assets/image/hero.webp'
+import heroImage from '../../../assets/image/original_hero.png'
 
 const AVATARS = [
   { initials: 'AK', bg: '#fde0d4' },
@@ -24,7 +24,7 @@ function Hero() {
 
   return (
     <section id="hero" className="relative pt-2 pb-8 md:pt-0 md:pb-10">
-      <div className="grid w-full overflow-hidden md:max-h-[620px] md:grid-cols-2 xl:mx-auto lg:max-h-none lg:h-[87vh] xl:w-10/12">
+      <div className="grid w-full md:max-h-[620px] md:grid-cols-2 xl:mx-auto lg:max-h-none lg:h-[87vh] xl:w-10/12">
         <div
           className="relative z-10 flex items-center px-5 pb-8 pt-6 sm:px-10 md:order-1 lg:px-16"
           style={{ transform: `translateY(${-textOffset}px)`, willChange: 'transform' }}
@@ -124,13 +124,13 @@ function Hero() {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            className="h-full w-full object-cover object-left-bottom md:!object-center"
+            className="h-full w-full object-cover object-top md:!object-center"
           />
           {/* Text overlay */}
-          <div className="absolute bottom-5 left-5 z-20 md:bottom-10 md:left-10 lg:bottom-14 lg:left-14 xl:bottom-16 xl:left-16">
-            <h2 className="text-2xl font-extrabold tracking-tight text-white drop-shadow-lg [text-shadow:_0_2px_10px_rgb(0_0_0_/_60%)] sm:text-3xl md:text-3xl lg:text-4xl leading-[1.2]">
-              発音を変えると、<br />
-              英語が変わる。
+          <div className="absolute bottom-5 left-5 pr-5 z-20 md:bottom-6 md:left-6 md:pr-6 lg:bottom-10 lg:left-10 lg:pr-10 xl:bottom-16 xl:left-16 xl:pr-16">
+            <h2 className="text-2xl font-extrabold tracking-tight text-white drop-shadow-lg [text-shadow:_0_2px_10px_rgb(0_0_0_/_60%)] sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl leading-[1.2]">
+              聞き返されない。<br />
+              それだけで英語に自信が持てる。
             </h2>
           </div>
           {/* Gradient overlay for text readability */}

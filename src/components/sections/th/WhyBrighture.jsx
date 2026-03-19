@@ -109,11 +109,11 @@ function Card({ item, isActive, isHovered, onClick, onMouseEnter, onMouseLeave, 
         </span>
         <div style={{ flex: 1 }}>
           <p style={{
-            fontWeight: 700,
-            fontSize: compact ? "16px" : "17px",
-            marginBottom: "4px",
+            fontWeight: 800,
+            fontSize: compact ? "18px" : "20px",
+            marginBottom: "6px",
             color: isActive ? item.color : "#2C2620",
-            fontFamily: "'Georgia', serif",
+            letterSpacing: "-0.01em",
             transition: "color 0.2s",
           }}>
             {item.label}
@@ -121,33 +121,35 @@ function Card({ item, isActive, isHovered, onClick, onMouseEnter, onMouseLeave, 
 
           {/* Detail expand */}
           <div style={{
-            maxHeight: isActive ? (compact ? "240px" : "160px") : "0px",
+            maxHeight: isActive ? (compact ? "280px" : "180px") : "0px",
             opacity: isActive ? 1 : 0,
             overflow: "hidden",
             transition: "max-height 0.5s ease, opacity 0.4s ease",
           }}>
-            <p style={{ fontSize: compact ? "13px" : "14px", lineHeight: 1.7, paddingTop: "8px", color: "#5A5048" }}>
+            <p style={{ fontSize: compact ? "15px" : "16px", lineHeight: 1.6, paddingTop: "8px", color: "#5A5048" }}>
               {item.detail}
             </p>
             <div style={{
-              marginTop: "12px",
+              marginTop: "16px",
               display: "flex",
               alignItems: "baseline",
-              gap: "8px",
+              gap: "10px",
             }}>
-              <span style={{ fontSize: compact ? "24px" : "28px", fontWeight: 800, color: item.color, fontFamily: "'Georgia', serif" }}>
+              <span style={{ fontSize: compact ? "28px" : "32px", fontWeight: 800, color: item.color, letterSpacing: "-0.02em" }}>
                 {item.stat}
               </span>
-              <span style={{ fontSize: "12px", color: "#8A7F76" }}>{item.statLabel}</span>
+              <span style={{ fontSize: "14px", color: "#8A7F76", fontWeight: 500 }}>{item.statLabel}</span>
             </div>
           </div>
 
           {!isActive && (
             <p style={{
-              fontSize: compact ? "10px" : "11px",
-              marginTop: "4px",
+              fontSize: compact ? "12px" : "13px",
+              marginTop: "6px",
+              fontWeight: 600,
               color: isHovered ? item.color : "#B0A89E",
-              fontFamily: "monospace",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
               transition: "color 0.2s",
             }}>
               {isHovered ? "click to explore →" : "tap to expand →"}
@@ -178,7 +180,7 @@ export default function BrightureLanding() {
 
   return (
     <div style={{
-      fontFamily: "'Georgia', 'Times New Roman', serif",
+      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
       background: "linear-gradient(160deg, #FDF8F3 0%, #F5EFE8 60%, #EEF6F4 100%)",
       display: "flex",
       flexDirection: "column",
@@ -190,22 +192,22 @@ export default function BrightureLanding() {
       {/* Header */}
       <div style={{ maxWidth: sectionMaxWidth, width: "100%", marginBottom: "clamp(32px, 5vw, 48px)", textAlign: "center" }}>
         <h1 style={{
-          fontSize: "clamp(28px, 4.2vw, 40px)",
+          fontSize: "clamp(32px, 5vw, 48px)",
           fontWeight: 800,
           lineHeight: 1.15,
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.03em",
           color: "#1C1A17",
-          marginBottom: "20px",
+          marginBottom: "24px",
         }}>
           Why Thai Learners
           <br />
           <span style={{ color: "#E8490F", fontStyle: "italic" }}>Choose Brighture</span>
         </h1>
         <div style={{
-          height: "1px", width: "96px", margin: "0 auto 22px",
+          height: "2px", width: "96px", margin: "0 auto 28px",
           background: "linear-gradient(to right, #E8490F, transparent)",
         }} />
-        <p style={{ fontSize: isMobile ? "16px" : "18px", lineHeight: 1.75, color: "#6B6259" }}>
+        <p style={{ fontSize: isMobile ? "18px" : "20px", lineHeight: 1.75, color: "#6B6259" }}>
           Many Thai students can speak English fluently — but still struggle with grammar accuracy, word choice and sentence structure, clarity and organization of ideas, and pronunciation that affects understanding.
         </p>
       </div>
@@ -254,7 +256,7 @@ export default function BrightureLanding() {
         {/* Left background quote mark */}
         <span style={{
           position: "absolute",
-          top: isMobile ? "-24px" : "-40px",
+          top: isMobile ? "-20px" : "-30px",
           left: isMobile ? "8px" : "24px",
           fontSize: isMobile ? "140px" : "220px",
           lineHeight: 1,
@@ -271,7 +273,7 @@ export default function BrightureLanding() {
         {/* Right background quote mark */}
         <span style={{
           position: "absolute",
-          bottom: isMobile ? "-70px" : "-120px",
+          bottom: isMobile ? "-50px" : "-90px",
           right: isMobile ? "8px" : "24px",
           fontSize: isMobile ? "140px" : "220px",
           lineHeight: 1,
@@ -300,11 +302,11 @@ export default function BrightureLanding() {
         <p style={{
           position: "relative",
           zIndex: 1,
-          fontSize: isMobile ? "clamp(18px, 5.5vw, 22px)" : "clamp(22px, 2.5vw, 30px)",
-          fontWeight: 400,
+          fontSize: isMobile ? "clamp(20px, 6vw, 24px)" : "clamp(26px, 3.5vw, 36px)",
+          fontWeight: 500,
           lineHeight: 1.5,
-          color: "#6B6259",
-          fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
+          color: "#4A433D",
+          letterSpacing: "-0.01em",
           maxWidth: "800px",
         }}>
           Speaking <span style={{
@@ -346,9 +348,9 @@ export default function BrightureLanding() {
           onMouseEnter={() => setHoveredBtn(true)}
           onMouseLeave={() => setHoveredBtn(false)}
           style={{
-            padding: isMobile ? "13px 20px" : "14px 32px",
-            borderRadius: "12px",
-            fontSize: isMobile ? "15px" : "16px",
+            padding: isMobile ? "15px 24px" : "18px 40px",
+            borderRadius: "14px",
+            fontSize: isMobile ? "16px" : "18px",
             fontWeight: 700,
             letterSpacing: "0.02em",
             fontFamily: "inherit",
@@ -409,26 +411,26 @@ export default function BrightureLanding() {
             boxShadow: "0 4px 24px #008F7711",
           }}>
             <p style={{
-              fontSize: "11px",
+              fontSize: "13px",
               textTransform: "uppercase",
               letterSpacing: "0.2em",
               color: "#008F77",
-              fontFamily: "monospace",
+              fontWeight: 800,
               marginBottom: "16px",
             }}>At Brighture</p>
             <p style={{
-              fontSize: "clamp(18px, 2.2vw, 22px)",
-              fontWeight: 700,
-              lineHeight: 1.65,
+              fontSize: "clamp(22px, 3vw, 32px)",
+              fontWeight: 800,
+              lineHeight: 1.5,
+              letterSpacing: "-0.02em",
               color: "#1C1A17",
-              fontFamily: "'Georgia', serif",
-              marginBottom: "24px",
+              marginBottom: "32px",
             }}>
               We focus on{" "}
               <span style={{ color: "#008F77", fontStyle: "italic" }}>proper fluency</span>{" "}
               — speaking clearly, naturally, and with the right structure so your message
               is understood{" "}
-              <span style={{ borderBottom: "2px solid #C48A00" }}>the first time.</span>
+              <span style={{ borderBottom: "3px solid #C48A00", paddingBottom: "2px" }}>the first time.</span>
             </p>
 
             {/* Pillars */}
@@ -451,18 +453,18 @@ export default function BrightureLanding() {
                   }}
                 >
                   <p style={{
-                    fontSize: "13px",
-                    fontWeight: 700,
+                    fontSize: "15px",
+                    fontWeight: 800,
                     color: hoveredPillar === p.label ? "#fff" : "#008F77",
-                    fontFamily: "monospace",
-                    marginBottom: "2px",
+                    marginBottom: "4px",
                     transition: "color 0.2s",
                   }}>
                     {p.icon} {p.label}
                   </p>
                   <p style={{
-                    fontSize: "11px",
-                    color: hoveredPillar === p.label ? "#C5F0E8" : "#7ABFB5",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: hoveredPillar === p.label ? "#C5F0E8" : "#4A433D",
                     transition: "color 0.2s",
                   }}>
                     {p.desc}

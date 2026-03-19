@@ -9,6 +9,7 @@ import Cta from '../../components/sections/th/Cta.jsx'
 import Feedback from '../../components/sections/th/Feedback.jsx'
 import Hero from '../../components/sections/th/Hero.jsx'
 import LearnOnline from '../../components/sections/th/LearnOnline.jsx'
+import Pricing from '../../components/sections/th/Pricing.jsx'
 import WhyBrighture from '../../components/sections/th/WhyBrighture.jsx'
 import thLandingConfig from './config.js'
 
@@ -30,6 +31,7 @@ function ThLandingPage() {
         <Courses />
         <Feedback />
         <LearnOnline />
+        <Pricing />
         <Cta />
       </main>
       <Footer />
