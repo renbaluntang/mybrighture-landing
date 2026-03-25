@@ -143,7 +143,7 @@ function Hero() {
           <div className="overflow-hidden rounded-[1.2rem] bg-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
             <img
               src={heroImage}
-              alt="Thai professional in an online English class"
+              alt="Professional in an online English class"
               loading="eager"
               decoding="async"
               fetchPriority="high"

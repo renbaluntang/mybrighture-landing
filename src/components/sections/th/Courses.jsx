@@ -221,11 +221,11 @@ function Courses() {
             <h2 className="text-[28px] font-extrabold leading-[1.15] tracking-tight text-[#12151d] sm:text-[36px] lg:text-[42px]">
               Courses Designed for{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e8400a] to-[#ff7b54]">
-                Thai Students
+                You
               </span>
             </h2>
             <p className="max-w-sm text-[14px] leading-[1.8] text-[#64748b] sm:text-right">
-              Structured, focused, and built around real communication for Thai learners.
+              Structured, focused, and built around real communication for every learner.
             </p>
           </div>
           {/* Divider */}

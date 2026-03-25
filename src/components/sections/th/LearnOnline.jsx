@@ -68,7 +68,7 @@ function LearnOnline() {
               </span>
             </h2>
             <p className="mt-5 text-[15px] leading-[1.8] text-[#4a5568]">
-              All classes are conducted online — designed to deliver the same quality, focus, and results as in-person lessons, wherever you are in Thailand or around the world.
+              All classes are conducted online — designed to deliver the same quality, focus, and results as in-person lessons, wherever you are in the world.
             </p>
 
             {/* CTA */}

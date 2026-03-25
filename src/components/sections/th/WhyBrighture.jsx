@@ -199,7 +199,7 @@ export default function BrightureLanding() {
           color: "#1C1A17",
           marginBottom: "24px",
         }}>
-          Why Thai Learners
+          Why Our Learners
           <br />
           <span style={{ color: "#E8490F", fontStyle: "italic" }}>Choose Brighture</span>
         </h1>
@@ -208,7 +208,7 @@ export default function BrightureLanding() {
           background: "linear-gradient(to right, #E8490F, transparent)",
         }} />
         <p style={{ fontSize: isMobile ? "18px" : "20px", lineHeight: 1.75, color: "#6B6259" }}>
-          Many Thai students can speak English fluently — but still struggle with grammar accuracy, word choice and sentence structure, clarity and organization of ideas, and pronunciation that affects understanding.
+          Many students can speak English fluently — but still struggle with grammar accuracy, word choice and sentence structure, clarity and organization of ideas, and pronunciation that affects understanding.
         </p>
       </div>
 
