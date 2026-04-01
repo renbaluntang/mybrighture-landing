@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import heroImage from '../../../assets/image/hero_th.jpeg'
 
-const ROTATING_WORDS = ['Globally', 'Professionally', 'Clearly']
+const ROTATING_WORDS = ['Global', 'Professional', 'Clear']
 
 function Counter({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
