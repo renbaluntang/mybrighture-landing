@@ -6,18 +6,18 @@ const painPoints = [
     id: 0,
     icon: '◎',
     label: 'Pronunciation & Intonation',
-    detail: 'Strong Vietnamese-influenced pronunciation and flat intonation make it difficult for international colleagues to understand clearly.',
+    detail: 'Strong accented pronunciation and flat intonation make it difficult for international colleagues to understand clearly.',
     color: '#E8490F',
     bg: '#FFF4F0',
     border: '#FDDDD3',
     stat: '76%',
-    statLabel: 'of Vietnamese learners report this',
+    statLabel: 'of our learners report this',
   },
   {
     id: 1,
     icon: '◈',
     label: 'Sentence Structure & Direct Translation',
-    detail: 'Translating directly from Vietnamese creates awkward phrasing and difficulty forming long, natural English sentences.',
+    detail: 'Translating directly from your native language creates awkward phrasing and difficulty forming long, natural English sentences.',
     color: '#C48A00',
     bg: '#FFFBEE',
     border: '#FDEFC3',
@@ -64,7 +64,7 @@ function PainPoints() {
           className="mb-14 transition-all duration-700 ease-out"
           style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? 'translateY(0)' : 'translateY(24px)' }}
         >
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#e8400a]">English for Vietnamese Professionals</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#e8400a]">English for Professionals</p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="text-[28px] font-extrabold leading-[1.15] tracking-tight text-[#12151d] sm:text-[36px] lg:text-[42px]">
               Motivated & Hardworking, But{' '}

@@ -5,18 +5,18 @@ const struggles = [
     id: 0,
     icon: '◎',
     label: 'Pronunciation That Affects Clarity',
-    detail: 'Sounds, tones, and stress patterns from Mandarin often carry into English speech — making it harder for international listeners to follow.',
+    detail: 'Sounds, tones, and stress patterns from your native language often carry into English speech — making it harder for international listeners to follow.',
     color: '#E8490F',
     bg: '#FFF4F0',
     border: '#FDDDD3',
     stat: '71%',
-    statLabel: 'of Taiwanese learners report this',
+    statLabel: 'of our learners report this',
   },
   {
     id: 1,
     icon: '◈',
-    label: 'Sentence Structures from Chinese Patterns',
-    detail: 'Direct translation from Chinese creates word order and grammar issues that reduce the naturalness and professionalism of spoken English.',
+    label: 'Sentence Structures from Native Language Patterns',
+    detail: 'Direct translation from your native language creates word order and grammar issues that reduce the naturalness and professionalism of spoken English.',
     color: '#C48A00',
     bg: '#FFFBEE',
     border: '#FDEFC3',
@@ -187,7 +187,7 @@ export default function PainPoints() {
           color: '#1C1A17',
           marginBottom: '20px',
         }}>
-          Why Taiwanese Learners
+          Why Learners
           <br />
           <span style={{ color: '#E8490F', fontStyle: 'italic' }}>Choose Brighture</span>
         </h2>
@@ -196,7 +196,7 @@ export default function PainPoints() {
           background: 'linear-gradient(to right, #E8490F, transparent)',
         }} />
         <p style={{ fontSize: isMobile ? '16px' : '18px', lineHeight: 1.75, color: '#6B6259' }}>
-          Many Taiwanese professionals can speak English — but still struggle with pronunciation clarity, sentence structure, expressing ideas professionally, and precision in grammar and word choice.
+          Many professionals can speak English — but still struggle with pronunciation clarity, sentence structure, expressing ideas professionally, and precision in grammar and word choice.
         </p>
       </div>
 

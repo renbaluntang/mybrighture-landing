@@ -21,7 +21,7 @@ const programs = [
     id: '03',
     emoji: '🔤',
     title: 'Pronunciation & Phonics',
-    description: 'Correct Vietnamese-influenced sounds, stress, and rhythm for clearer speech.',
+    description: 'Correct pronunciation, stress, and rhythm for clearer speech.',
     accent: '#1a2340',
   },
   {
@@ -152,7 +152,7 @@ function Programs() {
           style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? 'translateY(0)' : 'translateY(20px)' }}
         >
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#e8400a]">
-            Programs Designed for Vietnamese Learners
+            Programs Designed for Learners
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="text-[28px] font-extrabold leading-[1.15] tracking-tight text-[#12151d] sm:text-[36px] lg:text-[42px]">

@@ -79,7 +79,7 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-[520px] text-[1rem] leading-[1.75] text-[#4a5568] sm:text-[1.05rem]">
-            Brighture English Academy prepares Vietnamese professionals, university students, and early-career workers to communicate with clarity, structure, and professional confidence.
+            Brighture English Academy prepares professionals, university students, and early-career workers to communicate with clarity, structure, and professional confidence.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -117,7 +117,7 @@ function Hero() {
           <div className="overflow-hidden rounded-[1.2rem] bg-white shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
             <img
               src={heroImage}
-              alt="Vietnamese professional in an online English class"
+              alt="Professional in an online English class"
               loading="eager"
               decoding="async"
               fetchPriority="high"
